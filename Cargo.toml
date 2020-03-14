@@ -1,0 +1,17 @@
+[package]
+name = "dreamhost-ddns"
+version = "0.0.1"
+authors = ["Jacob Shufro <jacob@shuf.ro>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+trust-dns-resolver = "0.19.3"
+curl = "0.4.28"
+serde_json = "1.0.48"
+clap = { version = "3.0.0-beta.1", git = "https://github.com/clap-rs/clap/" }
+log = "0.4.8"
+syslog = "5.0.0"
+libc = "0.2.67"
+lazy_static = "1.4.0"
