@@ -7,6 +7,8 @@ Updates dreamhost's API to add an A/AAAA record for your local network's externa
 1. [Get Rust](https://www.rust-lang.org/learn/get-started)
 2. Build the project using `cargo build`.
 3. Run the project using `cargo run -- --key [YOUR-DREAMHOST-API-KEY] --hostname [mysubdomain.mysite.com]`
+4. Use `cargo install .` from the project directory to create to install.
+5. Optionally run under cron using `--once` (recommended to run no more than hourly).
 
 ### Just install and use
 TODO: figure out how to run under systemd and deploy on crates.io
@@ -15,7 +17,7 @@ TODO: figure out how to run under systemd and deploy on crates.io
 TODO: Link to dockerfile repo
 
 ## Authors
-* **Jacob Shufro** - Just trying to learn a new systems language.
+* **Jacob Shufro** - Trying to learn a new systems language.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
