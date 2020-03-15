@@ -48,6 +48,10 @@ struct Opts {
     /// Maximum seconds to wati between refreshes.
     #[clap(short = "M", long = "max-sleep", default_value = "1800")]
     max_sleep: u32,
+
+    /// Run once and exit.
+    #[clap(short = "o", long = "once", conflicts_with("max-sleep"), conflicts_with("min-sleep"), default_value = "0", parse(from_occurrences))]
+    once: i32,
 }
 
 fn heartbeat(resolver : &IpResolver, dreamhost: &mut Dreamhost) -> bool {
@@ -168,6 +172,9 @@ fn main() {
     loop {
         /* Try to update dreamhost */
         let succeeded : bool = heartbeat(&resolver, &mut dreamhost);
+        if OPTS.once > 0 {
+            std::process::exit((!succeeded).into());
+        }
 
         /* Determine how long to wait based on whether or not the update succeeded */
         sleep_s = update_timer(succeeded, sleep_s);
